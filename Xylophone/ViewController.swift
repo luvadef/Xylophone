@@ -19,31 +19,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func CKeyPressed(_ sender: UIButton) {
-        playSound(chord: "C")
-    }
-    
-    @IBAction func DKeyPressed(_ sender: UIButton) {
-        playSound(chord: "D")
-    }
-    
-    @IBAction func EKeyPressed(_ sender: UIButton) {
-        playSound(chord: "E")
-    }
-    
-    @IBAction func FKeyPressed(_ sender: UIButton) {
-        playSound(chord: "F")
-    }
-    
-    @IBAction func GKeyPressed(_ sender: UIButton) {
-        playSound(chord: "G")
-    }
-    
-    @IBAction func AKeyPressed(_ sender: UIButton) {
-        playSound(chord: "A")
-    }
-    
-    @IBAction func BkeyPressed(_ sender: UIButton) {
-        playSound(chord: "B")
+        sender.alpha = 0.2
+        playSound(chord: sender.currentTitle!)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2 ) {
+                sender.alpha = 1.0
+        }
     }
     
     func playSound(chord: String) {
